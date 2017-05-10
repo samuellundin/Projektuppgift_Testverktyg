@@ -14,7 +14,7 @@ public class UserGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int userGroupId;
-    private String user;
+    private String name;
 
 
     @OneToMany(targetEntity = User.class)
@@ -30,11 +30,11 @@ public class UserGroup {
     }
 
     public String getUser() {
-        return user;
+        return name;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        this.name = name;
     }
 
     public List getUserList() {
