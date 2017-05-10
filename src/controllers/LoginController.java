@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import services.Service;
+import services.UserService;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class LoginController {
     public void loginAction() {
         String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
-        Service service = new Service();
+        UserService service = new UserService();
         User user = service.login(email, password);
         if(user != null) {
             try {

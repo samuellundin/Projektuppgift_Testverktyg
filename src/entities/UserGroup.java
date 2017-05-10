@@ -33,7 +33,7 @@ public class UserGroup {
         return name;
     }
 
-    public void setUser(String user) {
+    public void setUser(String name) {
         this.name = name;
     }
 

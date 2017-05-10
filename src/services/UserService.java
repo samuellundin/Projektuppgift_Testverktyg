@@ -4,7 +4,7 @@ import entities.User;
 
 import javax.persistence.*;
 
-public class userService {
+public class UserService {
 
     private EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("persistence");
     private EntityManager entityManager = managerFactory.createEntityManager();
