@@ -1,8 +1,6 @@
 package entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,51 +9,41 @@ import java.util.List;
 
 @Entity
 @Table
-public class UserGroup implements Serializable{
+public class UserGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private int role;
+    private int userGroupId;
+    private String user;
 
-    @OneToMany
-    private List<User> users;
 
-    public void UserGroup() {
-        ArrayList userList = new ArrayList();
+    @OneToMany(targetEntity = User.class)
+    private List userList;
 
-        userList.add(1,firstName);
-        userList.add(2,lastName);
-        userList.add(3,email);
-        userList.add(4,password);
-        userList.add(5,role);
+
+    public int getUserGroupId() {
+        return userGroupId;
     }
 
-    public int getUserId() {
-        return userId;
+    public void setUserGrouId(int userGroupId) { //Primary Key
+        this.userGroupId = userGroupId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUser() {
+        return user;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getEmail() {
-        return email;
+    public List getUserList() {
+        return userList;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public int getRole() {
-        return role;
+    public void setUserList(List userList) {
+        this.userList = userList;
     }
 }
+
+

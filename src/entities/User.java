@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +15,20 @@ public class User implements Serializable {
     private String email;
     private String password;
     private int role;
+
+    public User(String firstName, String lastName, String email, String password, int role) {
+        super();
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User() {
+        super();
+    }
 
     public int getUserId() {
         return userId;
