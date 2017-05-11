@@ -51,12 +51,6 @@ public class TestController {
 
     }
 
-    public void saveAction() {
-        addTest();
-        Stage stage = (Stage) titleField.getScene().getWindow();
-        stage.close();
-    }
-
     private void addTest() {
         String title = titleField.getText();
         LocalDate startDate = startDatePicker.getValue();
@@ -73,5 +67,23 @@ public class TestController {
             answerLabelBox.getChildren().add(new Label("Answer:"));
             answerFieldBox.getChildren().add(new TextField());
         }
+    }
+
+    public void addQuestionAction() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/addQuestion.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Add Question");
+            stage.setScene(new Scene(root, 640, 480));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editQuestionAction() {
+    }
+
+    public void saveTestAction() {
     }
 }
