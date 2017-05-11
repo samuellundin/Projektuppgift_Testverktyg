@@ -6,7 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import services.TestService;
 
@@ -28,6 +30,11 @@ public class TestController {
     @FXML
     private CheckBox showResultCheckBox;
 
+    @FXML
+    private VBox answerFieldBox;
+    @FXML
+    private VBox answerLabelBox;
+
     public void cancelAction() {
         Stage stage = (Stage) titleField.getScene().getWindow();
         stage.close();
@@ -35,7 +42,6 @@ public class TestController {
 
     public void nextAction() {
         try {
-            addTest();
             Parent root = FXMLLoader.load(getClass().getResource("../view/question.fxml"));
             Stage stage = (Stage) titleField.getScene().getWindow();
             stage.setScene(new Scene(root, 640, 480));
@@ -62,4 +68,10 @@ public class TestController {
         service.addTest(title, startDate, endDate, time, selfCorrecting, showResult);
     }
 
+    public void addAnswerAction() {
+        if(answerFieldBox.getChildren().size() < 4) {
+            answerLabelBox.getChildren().add(new Label("Answer:"));
+            answerFieldBox.getChildren().add(new TextField());
+        }
+    }
 }

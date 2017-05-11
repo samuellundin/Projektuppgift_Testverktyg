@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Controller {
@@ -56,6 +56,8 @@ public class Controller {
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 400, 200));
             stage.setTitle("Add group");
+
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e){
             e.printStackTrace();

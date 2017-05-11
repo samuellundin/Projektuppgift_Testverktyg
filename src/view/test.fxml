@@ -18,6 +18,5 @@
     <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button text="Cancel" onAction="#cancelAction"/>
         <Button text="Next" onAction="#nextAction"/>
-        <Button text="Save" onAction="#saveAction"/>
     </HBox>
 </GridPane>
