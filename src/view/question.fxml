@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<GridPane fx:controller="controllers.TestController" alignment="CENTER" hgap="20" vgap="10"
+          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <Label text="Questions:" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ListView GridPane.rowSpan="5" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.Question"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+    <Label text="Question:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <TextField GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Label text="Type:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <ComboBox GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Label text="Points:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Spinner initialValue="0" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <VBox fx:id="answerLabelBox" spacing="20" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Label text="Answer:"/>
+    </VBox>
+    <VBox fx:id="answerFieldBox" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <TextField/>
+    </VBox>
+    <Button text="Add Answer" onAction="#addAnswerAction" GridPane.halignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+</GridPane>
