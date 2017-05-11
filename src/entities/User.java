@@ -26,6 +26,11 @@ public class User {
         this.role = role;
     }
 
+    @Override
+    public String toString(){
+        return firstName + " " + lastName;
+    }
+
     public User() {
         super();
     }
@@ -77,5 +82,7 @@ public class User {
     public void setRole(int role) {
         this.role = role;
     }
+
+
 
 }
