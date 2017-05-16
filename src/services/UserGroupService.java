@@ -4,9 +4,7 @@ import entities.User;
 import entities.UserGroup;
 import javafx.collections.ObservableList;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,5 +36,14 @@ public class UserGroupService {
         entityManager.close();
         emf.close();
 
+    }
+
+    public List<UserGroup> getAllUserGroups(){
+        try {
+            TypedQuery<UserGroup> query = entityManager.createQuery("SELECT g FROM UserGroup g", UserGroup.class);
+            return query.getResultList();
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
 }

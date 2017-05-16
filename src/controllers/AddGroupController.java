@@ -20,10 +20,10 @@ import java.util.ResourceBundle;
 /**
  * Created by johan on 2017-05-10.
  */
-public class GroupController implements Initializable{
+public class AddGroupController implements Initializable{
 
-    ObservableList<User> observableCandidates;
-    ObservableList<User> observableChosen;
+    private ObservableList<User> observableCandidates;
+    private ObservableList<User> observableChosen;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){

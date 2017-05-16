@@ -60,6 +60,16 @@ public class Controller {
     }
 
     public void editGroupAction() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/editGroupFirst.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 750, 600));
+            stage.setTitle("Edit group");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void takeTestAction() {
