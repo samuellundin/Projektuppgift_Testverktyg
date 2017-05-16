@@ -2,9 +2,8 @@ package services;
 
 import entities.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class TestService {
 
@@ -20,4 +19,17 @@ public class TestService {
         emf.close();
     }
 
+    public List<Test> getTest() {
+
+        try {
+            TypedQuery<Test> query = entityManager.createQuery("SELECT t FROM Test t", Test.class);
+
+
+            return query.getResultList();
+
+        } catch (NoResultException ex) {
+            return null;
+
+        }
+    }
 }
