@@ -37,4 +37,19 @@ public class TestService {
         emf.close();
     }
 
+<<<<<<< HEAD
+=======
+    public List<Test> getTest() {
+
+        try {
+            TypedQuery<Test> query = entityManager.createQuery("SELECT t FROM Test t", Test.class);
+
+            return query.getResultList();
+
+        } catch (NoResultException ex) {
+            return null;
+
+        }
+    }
+>>>>>>> origin/master
 }
