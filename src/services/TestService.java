@@ -24,7 +24,6 @@ public class TestService {
         try {
             TypedQuery<Test> query = entityManager.createQuery("SELECT t FROM Test t", Test.class);
 
-
             return query.getResultList();
 
         } catch (NoResultException ex) {
