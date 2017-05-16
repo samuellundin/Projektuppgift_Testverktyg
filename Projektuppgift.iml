@@ -20,6 +20,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="JPA 2.0-2.0" level="project" />
+=======
+    <orderEntry type="library" exported="" scope="PROVIDED" name="javax.persistence" level="project" />
+>>>>>>> origin/master
   </component>
 </module>
