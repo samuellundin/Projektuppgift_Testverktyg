@@ -61,6 +61,15 @@ public class Controller {
     }
 
     public void takeTestAction() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/chooseTest.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 200));
+            stage.setTitle("Add group");
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void showResultAction() {

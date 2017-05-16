@@ -1,11 +1,10 @@
 package services;
 
+import controllers.TestController;
 import entities.Question;
 import entities.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +14,8 @@ public class TestService {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
     EntityManager entityManager = emf.createEntityManager();
 
-    public void addTest(String title, LocalDate startDate, LocalDate endDate, int time, boolean selfCorrecting, boolean showResult){
-        Test test =  new Test();
+    public void addTest(String title, LocalDate startDate, LocalDate endDate, int time, boolean selfCorrecting, boolean showResult) {
+        Test test = new Test();
 
         List questionList = new ArrayList<Question>();
 
@@ -37,4 +36,19 @@ public class TestService {
         emf.close();
     }
 
+    public List<Test> getTest() {
+
+        try {
+            TypedQuery<Test> query = entityManager.createQuery("SELECT t FROM Test t", Test.class);
+
+
+            return query.getResultList();
+
+        } catch (NoResultException ex) {
+            return null;
+
+        }
+    }
 }
+
+
