@@ -1,17 +1,19 @@
 package entities;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Answer implements Serializable {
+public class Answer {
 
     @Id
     @GeneratedValue( strategy= GenerationType.AUTO )
     private int answerId;
     private String answer;
-    private int answerOrder;
-    private boolean correct;
+    private int points;
+    private int order;
 
     /*Constructors*/
     public Answer(){
@@ -35,20 +37,20 @@ public class Answer implements Serializable {
         this.answer = answer;
     }
 
-    public boolean isCorrect() {
-        return correct;
+    public int getPoints() {
+        return points;
     }
 
-    public void setCorrect(boolean correct) {
-        this.correct = correct;
+    public void setPoints(int points) {
+        this.points = points;
     }
 
-    public int getAnswerOrder() {
-        return answerOrder;
+    public int getOrder() {
+        return order;
     }
 
-    public void setAnswerOrder(int order) {
-        this.answerOrder = order;
+    public void setOrder(int order) {
+        this.order = order;
     }
 
 }

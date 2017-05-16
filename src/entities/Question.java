@@ -1,24 +1,24 @@
 package entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by johan on 2017-05-04.
+ */
 @Entity
-@Table
-public class Question implements Serializable {
+public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int questionId;
     private String question;
-    private int type;
+    private char type;
     private int points;
-    private int questionOrder;
+    private int order;
 
-    @OneToMany(cascade = CascadeType.PERSIST, targetEntity = Answer.class)
-    private List<Answer> answerList = new ArrayList<>();
+    @OneToMany(targetEntity = Answer.class)
+    private List<Answer> answerList;
 
     /*Constructors*/
     public Question(){
@@ -42,11 +42,11 @@ public class Question implements Serializable {
         this.question = question;
     }
 
-    public int getType() {
+    public char getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(char type) {
         this.type = type;
     }
 
@@ -58,12 +58,12 @@ public class Question implements Serializable {
         this.points = points;
     }
 
-    public int getQuestionOrder() {
-        return questionOrder;
+    public int getOrder() {
+        return order;
     }
 
-    public void setQuestionOrder(int order) {
-        this.questionOrder = order;
+    public void setOrder(int order) {
+        this.order = order;
     }
 
     public List<Answer> getAnswerList() {

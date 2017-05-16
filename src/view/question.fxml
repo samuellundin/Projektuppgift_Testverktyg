@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<GridPane fx:controller="controllers.TestController" alignment="CENTER" hgap="20" vgap="10"
+          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <Label text="Questions:" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ListView GridPane.rowSpan="5" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
-<GridPane alignment="CENTER" prefHeight="480" prefWidth="640" hgap="15" vgap="20"
-          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.QuestionController">
-
-    <Label text="Question:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-    <TextField fx:id="questionField" minWidth="380" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <Label text="Type:" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <HBox spacing="15" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="1">
-        <ComboBox fx:id="typeComboBox" minWidth="270"/>
-        <Label text="Points:" alignment="CENTER_RIGHT"/>
-        <TextField fx:id="pointField" alignment="CENTER" maxWidth="45"/>
-    </HBox>
-
-    <Separator GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <VBox fx:id="answerBox" spacing="12" minHeight="165" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <Separator GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-
-    <Label fx:id="messageLabel" GridPane.halignment="CENTER" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-
-    <HBox spacing="10" GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="6">
-        <Button text="Remove" fx:id="removeAnswerButton" onAction="#removeAnswerAction" minWidth="75"/>
-        <Button text="Add" fx:id="addAnswerButton" onAction="#addAnswerAction" minWidth="75"/>
-    </HBox>
-    <HBox spacing="10" maxWidth="200" alignment="CENTER_RIGHT" GridPane.halignment="RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button text="Next" fx:id="nextQuestionButton" onAction="#nextQuestionAction" minWidth="75"/>
-        <Button text="Finish" fx:id="saveTestButton" onAction="#saveTestAction" minWidth="75"/>
-    </HBox>
+    <Label text="Question:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <TextField GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Label text="Type:" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <ComboBox GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Label text="Points:" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Spinner initialValue="0" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <VBox fx:id="answerLabelBox" spacing="20" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Label text="Answer:"/>
+    </VBox>
+    <VBox fx:id="answerFieldBox" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <TextField/>
+    </VBox>
+    <Button text="Add Answer" onAction="#addAnswerAction" GridPane.halignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
 </GridPane>
