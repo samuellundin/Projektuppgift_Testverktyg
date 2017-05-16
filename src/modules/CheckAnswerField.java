@@ -1,26 +1,38 @@
 package modules;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-public class AnswerFieldModule extends HBox {
+public class CheckAnswerField extends HBox {
 
     private Label answerLabel;
     private TextField answerField;
     private CheckBox correctCheck;
 
-    public AnswerFieldModule() {
+    public CheckAnswerField() {
         answerLabel = new Label("Answer:");
-        answerLabel.setPadding(new Insets(0, 0, 0, 46));
+        answerLabel.setAlignment(Pos.CENTER_RIGHT);
         answerField = new TextField();
-        answerField.setMinWidth(420);
+        answerField.setId("answerField");
+        answerField.setMinWidth(340);
         correctCheck = new CheckBox();
         setSpacing(10);
         setAlignment(Pos.CENTER);
         getChildren().addAll(answerLabel, answerField, correctCheck);
+    }
+
+    public String getText() {
+        return answerField.getText();
+    }
+
+    public boolean isCorrect() {
+        return correctCheck.isSelected();
+    }
+
+    public void setAnswerCount(int answerCount) {
+        answerLabel.setText("Answer "+ answerCount +":");
     }
 }

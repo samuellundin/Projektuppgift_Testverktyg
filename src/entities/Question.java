@@ -13,7 +13,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int questionId;
     private String question;
-    private char type;
+    private int type;
     private int points;
     private int order;
 
@@ -42,11 +42,11 @@ public class Question {
         this.question = question;
     }
 
-    public char getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(char type) {
+    public void setType(int type) {
         this.type = type;
     }
 

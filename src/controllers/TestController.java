@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.Test;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import services.TestService;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -41,25 +41,33 @@ public class TestController {
     }
 
     public void nextAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/question.fxml"));
-            Stage stage = (Stage) titleField.getScene().getWindow();
-            stage.setScene(new Scene(root, 640, 480));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void addTest() {
         String title = titleField.getText();
         LocalDate startDate = startDatePicker.getValue();
         LocalDate endDate = endDatePicker.getValue();
         int time = Integer.parseInt(timeField.getText());
         boolean selfCorrecting = selfCorrectingCheckBox.isSelected();
         boolean showResult = showResultCheckBox.isSelected();
-        TestService service = new TestService();
-        service.addTest(title, startDate, endDate, time, selfCorrecting, showResult);
+
+        Test test = new Test();
+        test.setTitle(title);
+        test.setStartDate(startDate);
+        test.setEndDate(endDate);
+        test.setTime(time);
+        test.setSelfCorrecting(selfCorrecting);
+        test.setShowResult(showResult);
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/question.fxml"));
+            Parent root = fxmlLoader.load();
+            QuestionController questionController = fxmlLoader.getController();
+            questionController.setTest(test);
+            Stage stage = (Stage) titleField.getScene().getWindow();
+            stage.setTitle("Add Question");
+            stage.setScene(new Scene(root, 640, 480));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addAnswerAction() {
@@ -69,21 +77,7 @@ public class TestController {
         }
     }
 
-    public void addQuestionAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/addQuestion.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Add Question");
-            stage.setScene(new Scene(root, 640, 480));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void editQuestionAction() {
-    }
-
     public void saveTestAction() {
     }
+
 }
