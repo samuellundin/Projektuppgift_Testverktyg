@@ -1,13 +1,18 @@
 package controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Controller {
+
+    @FXML
+    private Label welcomeLabel;
 
     public void addTestAction() {
         try {
@@ -51,6 +56,8 @@ public class Controller {
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 400, 200));
             stage.setTitle("Add group");
+
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e){
             e.printStackTrace();
@@ -79,6 +86,20 @@ public class Controller {
     }
 
     public void logoutAction() {
+
+        try {
+            Stage thisStage = (Stage) welcomeLabel.getScene().getWindow();
+            thisStage.close();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/login.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 200));
+            stage.setTitle("Login");
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+
+        }
+
     }
 
 }

@@ -1,11 +1,13 @@
 package entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Test {
+public class Test implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -17,8 +19,8 @@ public class Test {
     private boolean selfCorrecting;
     private boolean showResult;
 
-    @OneToMany(targetEntity = Question.class)
-    private List<Question> questionList;
+    @OneToMany(targetEntity = Question.class, cascade = CascadeType.PERSIST)
+    private List<Question> questionList = new ArrayList<>();
 
     /*Constructors*/
     public Test() {
