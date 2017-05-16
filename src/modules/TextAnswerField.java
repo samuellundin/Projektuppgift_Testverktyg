@@ -20,4 +20,7 @@ public class TextAnswerField extends HBox {
         getChildren().addAll(answerLabel, answerArea);
     }
 
+    public String getText() {
+        return answerArea.getText();
+    }
 }

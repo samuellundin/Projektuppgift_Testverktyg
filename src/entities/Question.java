@@ -1,13 +1,13 @@
 package entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by johan on 2017-05-04.
- */
 @Entity
-public class Question {
+@Table
+public class Question implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,10 +15,10 @@ public class Question {
     private String question;
     private int type;
     private int points;
-    private int order;
+    private int questionOrder;
 
-    @OneToMany(targetEntity = Answer.class)
-    private List<Answer> answerList;
+    @OneToMany(cascade = CascadeType.PERSIST, targetEntity = Answer.class)
+    private List<Answer> answerList = new ArrayList<>();
 
     /*Constructors*/
     public Question(){
@@ -58,12 +58,12 @@ public class Question {
         this.points = points;
     }
 
-    public int getOrder() {
-        return order;
+    public int getQuestionOrder() {
+        return questionOrder;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
+    public void setQuestionOrder(int order) {
+        this.questionOrder = order;
     }
 
     public List<Answer> getAnswerList() {
