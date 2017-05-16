@@ -3,9 +3,7 @@ package services;
 import entities.Question;
 import entities.Test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,8 +35,6 @@ public class TestService {
         emf.close();
     }
 
-<<<<<<< HEAD
-=======
     public List<Test> getTest() {
 
         try {
@@ -51,5 +47,5 @@ public class TestService {
 
         }
     }
->>>>>>> origin/master
+
 }
